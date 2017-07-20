@@ -1,11 +1,10 @@
 class DropOffPackagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_drop_off_package, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /drop_off_packages
   # GET /drop_off_packages.json
   def index
-    @drop_off_packages = DropOffPackage.all
   end
 
   # GET /drop_off_packages/1
@@ -26,6 +25,7 @@ class DropOffPackagesController < ApplicationController
   # POST /drop_off_packages.json
   def create
     @drop_off_package = DropOffPackage.new(drop_off_package_params)
+    @drop_off_package.user = current_user
 
     respond_to do |format|
       if @drop_off_package.save
@@ -70,6 +70,6 @@ class DropOffPackagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def drop_off_package_params
-      params.require(:drop_off_package).permit(:tracking_ref, :user_id)
+      params.require(:drop_off_package).permit(:tracking_ref)
     end
 end
