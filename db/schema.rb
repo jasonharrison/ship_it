@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170720023811) do
+ActiveRecord::Schema.define(version: 20170720041915) do
 
   create_table "drop_off_packages", force: :cascade do |t|
     t.string "tracking_ref"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "carrier"
     t.index ["user_id"], name: "index_drop_off_packages_on_user_id"
   end
 
