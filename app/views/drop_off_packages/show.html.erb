@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tracking ref:</strong>
+  <%= @drop_off_package.tracking_ref %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @drop_off_package.user %>
+</p>
+
+<%= link_to 'Edit', edit_drop_off_package_path(@drop_off_package) %> |
+<%= link_to 'Back', drop_off_packages_path %>

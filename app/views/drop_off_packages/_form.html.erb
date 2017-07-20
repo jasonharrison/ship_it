@@ -1,0 +1,27 @@
+<%= form_with(model: drop_off_package, local: true) do |form| %>
+  <% if drop_off_package.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(drop_off_package.errors.count, "error") %> prohibited this drop_off_package from being saved:</h2>
+
+      <ul>
+      <% drop_off_package.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tracking_ref %>
+    <%= form.text_field :tracking_ref, id: :drop_off_package_tracking_ref %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :drop_off_package_user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
