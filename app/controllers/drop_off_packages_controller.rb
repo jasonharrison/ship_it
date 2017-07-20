@@ -1,6 +1,6 @@
 class DropOffPackagesController < ApplicationController
-  before_action :set_drop_off_package, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :set_drop_off_package, only: [:show, :edit, :update, :destroy]
 
   # GET /drop_off_packages
   # GET /drop_off_packages.json
