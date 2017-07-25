@@ -2,4 +2,26 @@
 
 <%= render 'form', drop_off_package: @drop_off_package %>
 
+<table>
+  <thead>
+    <tr>
+      <th>Carrier</th>
+      <th>Tracking ref</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+<% if defined? @trackobjs %>
+  <tbody>
+  <% @trackobjs.each do |key, dropped_off_package| %>
+      <tr>
+        <td><%= dropped_off_package.carrier %></td>
+        <td><%= dropped_off_package.tracking_ref %></td>
+        <td><%= link_to 'Delete', drop_off_package_path(dropped_off_package, more: true), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+<% end %>
+
 <%= link_to 'Back', drop_off_packages_path %>

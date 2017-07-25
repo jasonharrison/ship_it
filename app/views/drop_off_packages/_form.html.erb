@@ -13,15 +13,16 @@
 
   <div class="field">
     <%= form.label :tracking_ref %>
-    <%= form.text_field :tracking_ref, id: :drop_off_package_tracking_ref %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :drop_off_package_user_id %>
+    <%= form.text_field :tracking_ref, id: :drop_off_package_tracking_ref, autofocus: @drop_off_package.new_record?, autocomplete: false, size: 50 %>
   </div>
 
   <div class="actions">
+  <% if drop_off_package.persisted? %> <%# if persisted, we are doing an update %>
     <%= form.submit %>
+  <% else %>
+    <%= form.submit("More", name: "more", style: "display: none;") %>
+    <%= button_to("Receipt", receipt_drop_off_packages_path, method: :get, class: "btn btn-primary") %>
+    <%= form.submit("Done", name: "done") %>
+  <% end %>
   </div>
 <% end %>
