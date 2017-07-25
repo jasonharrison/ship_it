@@ -56,3 +56,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rubocop-rails'
 gem 'devise'
 gem 'cancancan', '~> 2.0'
+gem 'tracking_number'
