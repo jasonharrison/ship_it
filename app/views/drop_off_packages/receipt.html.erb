@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <th>Carrier</th>
+      <th>Tracking ref</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @trackobjs.each do |key, dropped_off_package| %>
+      <tr>
+        <td><%= dropped_off_package.carrier %></td>
+        <td><%= dropped_off_package.tracking_ref %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Drop Off Package', new_drop_off_package_path %>
+<%= link_to 'Index', drop_off_packages_path %>

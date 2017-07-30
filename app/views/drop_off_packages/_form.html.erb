@@ -21,7 +21,7 @@
     <%= form.submit %>
   <% else %>
     <%= form.submit("More", name: "more", style: "display: none;") %>
-    <%= button_to("Receipt", receipt_drop_off_packages_path, method: :get, class: "btn btn-primary") %>
+    <%= form.submit("Receipt", name: "receipt") %>
     <%= form.submit("Done", name: "done") %>
   <% end %>
   </div>
